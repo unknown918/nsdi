@@ -1,0 +1,6 @@
+gpu_id: 0, layer: 0, route_experts: [0, 25] (count=26), redundant_experts: [26, 28] (count=3)
+gpu_id: 1, layer: 0, route_experts: [26, 51] (count=26), redundant_experts: [52, 54] (count=3)
+gpu_id: 2, layer: 0, route_experts: [52, 77] (count=26), redundant_experts: [78, 80] (count=3)
+gpu_id: 3, layer: 0, route_experts: [78, 103] (count=26), redundant_experts: [104, 106] (count=3)
+gpu_id: 4, layer: 0, route_experts: [104, 129] (count=26), redundant_experts: [130, 132] (count=3)
+gpu_id: 5, layer: 0, route_experts: [130, 155] (count=26), redundant_experts: [156, 158] (count=3)

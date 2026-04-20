@@ -1,0 +1,4 @@
+# 当前目录下
+python setup.py install
+
+

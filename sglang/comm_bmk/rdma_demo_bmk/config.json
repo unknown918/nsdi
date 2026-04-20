@@ -1,0 +1,18 @@
+{
+    "attn_nodes": [
+        {
+            "node_rank": 0,
+            "nprocs": 4,
+            "ip": "172.20.67.24",
+            "user": "root"
+        }
+    ],
+    "moe_nodes": [
+        {
+            "node_rank": 1,
+            "nprocs": 4,
+            "ip": "172.23.239.80",
+            "user": "root"
+        }
+    ]
+}
