@@ -16,7 +16,7 @@ python -m sglang.launch_server \
     --node-rank 1 \
     --attention-node -1 \
     --expert-node 0 \
-    --num-expert-per-gpu 21 \
+    --num-expert-per-gpu 19 \
     --dist-init-addr localhost:60000 \
     --sampling-backend pytorch \
     --mem-fraction-static 0.95

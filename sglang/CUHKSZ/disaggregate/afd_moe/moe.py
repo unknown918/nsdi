@@ -8,7 +8,7 @@ from torch import nn
 from transformers import PretrainedConfig
 from collections import defaultdict
 from safetensors.torch import safe_open
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Iterable
 
 import torch.distributed as dist
 from sglang.srt.layers.moe.topk import select_experts
@@ -342,14 +342,15 @@ class UnifiedMoE(nn.Module):
         return [eid for eid, gpus in expert2gpus.items() if gpu_id in gpus]
 
     def load_weights(self, model_path: str) -> None:
+        # def load_weights(self, weights: Iterable[Tuple[str, torch.Tensor]]):
         layer2experts_on_gpu = {}
-        for layer_id in range(1, self.num_layers):
+        for layer_id in range(self.num_dense_layers, self.num_layers):
             expert2gpus = self.expert_to_gpus.get(layer_id, None)
             experts_on_gpu = self.get_experts_on_gpu(expert2gpus, self.my_ep_rank)
             layer2experts_on_gpu[layer_id] = experts_on_gpu
 
         # get weight dicts for current device
-        weights_dict = self.load_moe_experts(
+        weights = self.load_moe_experts(
             model_path,
             self.num_layers,
             layer2experts_on_gpu,
@@ -364,7 +365,8 @@ class UnifiedMoE(nn.Module):
 
         params_dict = dict(self.named_parameters())
 
-        for name, tensor in weights_dict.items():
+        for name, tensor in weights.items():
+            # for name, tensor in weights:
             if "mlp.gate.weight" in name:
                 layer_idx = int(name.split(".")[2])
                 gate_param_name = f"layers.{layer_idx}.gate.weight"

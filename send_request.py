@@ -11,7 +11,7 @@ response = client.chat.completions.create(
             "content": "Who are you?",
         },
     ],
-    temperature=1,
-    max_tokens=128,
+    temperature=0.5,
+    max_tokens=500,
 )
 print(json.loads(response.model_dump_json())['choices'][0]['message']['content'])

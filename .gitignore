@@ -191,3 +191,4 @@ DeepSeek-V2
 Qwen3-235B/
 benchmark/qwen3
 benchmark/ShareGPT_V3.json
+.env*

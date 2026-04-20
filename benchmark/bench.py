@@ -13,7 +13,7 @@ def run_bench_serving(
         warm_up: int = 2,
         host: str = "127.0.0.1",
         port: int = 30010,
-        output_dir: str = "./qwen3/megascale/a1e7-21"
+        output_dir: str = "./qwen3/alloscale/a1e7-19"
 ):
     os.makedirs(output_dir, exist_ok=True)
     num_prompts = bsz * prompt_per_batch
