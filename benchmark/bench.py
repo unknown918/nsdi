@@ -7,13 +7,13 @@ def run_bench_serving(
         model_path: str,
         data_path: str,
         bsz: int,
+        output_dir: str,
         prompt_per_batch: int = 3,
         input_len: int = 64,
         output_len: int = 16,
         warm_up: int = 2,
         host: str = "127.0.0.1",
-        port: int = 30010,
-        output_dir: str = "./qwen3/alloscale/a1e7-19"
+        port: int = 30010
 ):
     os.makedirs(output_dir, exist_ok=True)
     num_prompts = bsz * prompt_per_batch
@@ -71,6 +71,7 @@ if __name__ == "__main__":
             model_path=model_path,
             data_path=data_path,
             bsz=bsz,
+            output_dir="./qwen3/alloscale/a2e6",
             prompt_per_batch=prompt_per_batch,
             input_len=input_len,
             output_len=output_len,

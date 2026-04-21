@@ -4,7 +4,7 @@ import openai
 client = openai.Client(base_url="http://127.0.0.1:30010/v1", api_key="None")
 
 response = client.chat.completions.create(
-    model="Qwen3-235B",
+    model="./Qwen3-235B",
     messages=[
         {
             "role": "user",

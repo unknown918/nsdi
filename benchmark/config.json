@@ -1,0 +1,34 @@
+{
+  "global": {
+    "parallel_sizes": [
+      8
+    ],
+    "bench_mcs": [
+      16,
+      64,
+      256,
+      512,
+      1024
+    ],
+    "warmup_mc": 16,
+    "warmup_rounds": 2,
+    "input_len": 16,
+    "output_len": 64,
+    "mem_fraction_static": 0.95
+  },
+  "experiments": [
+    {
+      "name": "sglang",
+      "enable": 1,
+      "envs": {},
+      "bench_mcs": [
+        16,
+        64,
+        256,
+        512,
+        1024
+      ],
+      "mem_fraction_static": 0.95
+    }
+  ]
+}
